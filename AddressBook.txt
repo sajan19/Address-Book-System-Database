@@ -42,3 +42,15 @@ mysql> INSERT INTO `addressbook_service`.`addressbook` (`Sr.no.`, `firstName`, `
 `City`, `State`, `ZipCode`, `PhoneNumber`, `email`)
 VALUES ('1', 'Sajan', 'Mhatre', 'Uran', 'Vashi', 'Maharashtra', '400702', '9988776622', 'sajan@gmail.com');
 Query OK, 1 row affected (0.09 sec)
+-------------------------------------------------------
+//Use Case 4 Edit data in a Table
+mysql> UPDATE `addressbook_service`.`addressbook`
+SET `firstName` = 'Sagar',
+`address` = 'Dadar',
+`State` = 'Telengana',
+`ZipCode` = '400897',
+`PhoneNumber` = '9923412366',
+`email` = 'sagar88@gmail.com'
+ WHERE (`firstName` = 'Sajan');
+Query OK, 1 row affected (0.10 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
