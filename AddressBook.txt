@@ -27,13 +27,20 @@ mysql> show databases;
 mysql> use addressbook_service
 Database changed
 mysql> CREATE TABLE `addressbook_service`.`addressbook`
- (  `Sr.no.` INT NOT NULL,  `FirstName` VARCHAR(45) NOT NULL,
-   `LastName` VARCHAR(45) NOT NULL,
-     `Address` VARCHAR(255) NOT NULL,
-       `City` VARCHAR(45) NOT NULL,
-        `State` VARCHAR(45) NOT NULL,
-         `ZipCode` INT NOT NULL,
-          `PhoneNumber` INT NOT NULL,
-           `Email` VARCHAR(255) NOT NULL,
-            PRIMARY KEY (`Sr.no.`));
-Query OK, 0 rows affected (2.91 sec)
+(  `Sr.no.` INT NOT NULL,  `firstName` VARCHAR(45) NOT NULL,
+ `lastName` VARCHAR(45) NOT NULL,
+  `address` VARCHAR(255) NOT NULL,
+   `addressbookcol` VARCHAR(45) NOT NULL,
+    `City` VARCHAR(45) NOT NULL,
+     `State` VARCHAR(45) NOT NULL,
+      `ZipCode` INT NOT NULL,
+       `PhoneNumber` VARCHAR(45) NOT NULL,
+        `email` VARCHAR(255) NOT NULL,
+         PRIMARY KEY (`Sr.no.`));
+Query OK, 0 rows affected (0.95 sec)
+-------------------------------------------------------
+//Use Case 3 Insert data in a Table
+mysql> INSERT INTO `addressbook_service`.`addressbook` (`Sr.no.`, `firstName`, `lastName`, `address`,
+`City`, `State`, `ZipCode`, `PhoneNumber`, `email`)
+VALUES ('1', 'Sajan', 'Mhatre', 'Uran', 'Vashi', 'Maharashtra', '400702', '9988776622', 'sajan@gmail.com');
+Query OK, 1 row affected (0.09 sec)
