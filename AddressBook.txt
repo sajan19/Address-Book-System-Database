@@ -54,3 +54,8 @@ SET `firstName` = 'Sagar',
  WHERE (`firstName` = 'Sajan');
 Query OK, 1 row affected (0.10 sec)
 Rows matched: 1  Changed: 1  Warnings: 0
+-------------------------------------------------------
+//Use Case 5 Delete Contact
+mysql> DELETE FROM `addressbook_service`.`addressbook`
+WHERE (`firstName` = 'Rahul');
+Query OK, 1 row affected (0.15 sec)
