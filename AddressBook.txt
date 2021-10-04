@@ -29,8 +29,6 @@ Database changed
 mysql> CREATE TABLE `addressbook_service`.`addressbook`
 (  `Sr.no.` INT NOT NULL,  `firstName` VARCHAR(45) NOT NULL,
  `lastName` VARCHAR(45) NOT NULL,
-  `address` VARCHAR(255) NOT NULL,
-   `addressbookcol` VARCHAR(45) NOT NULL,
     `City` VARCHAR(45) NOT NULL,
      `State` VARCHAR(45) NOT NULL,
       `ZipCode` INT NOT NULL,
