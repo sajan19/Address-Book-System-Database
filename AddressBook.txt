@@ -59,3 +59,33 @@ Rows matched: 1  Changed: 1  Warnings: 0
 mysql> DELETE FROM `addressbook_service`.`addressbook`
 WHERE (`firstName` = 'Rahul');
 Query OK, 1 row affected (0.15 sec)
+-------------------------------------------------------
+//Use Case 6 Retrieve Contact
+mysql> SELECT * FROM addressbook_service.addressbook;
++--------+-----------+----------+---------+---------+-----------+---------+-------------+---------------------+
+| Sr.no. | firstName | lastName | address | City    | State     | ZipCode | PhoneNumber | email               |
++--------+-----------+----------+---------+---------+-----------+---------+-------------+---------------------+
+|      1 | Sagar     | Mhatre   | Dadar   | Vashi   | Telengana |  400897 | 9923412366  | sagar88@gmail.com   |
+|      3 | Vaibhav   | Thakur   | Dilor   | Matunga | Kerela    |  781002 | 9912341243  | vaibhav12@gmail.com |
+|      4 | Sajan     | Mhatre   | Thane   | Nagoan  | UP        |  890123 | 8978098909  | sajan19@gmail.com   |
+|      5 | Devedra   | Shravne  | Sion    | Karnir  | Karnataka |  980400 | 7968453211  | devd23@gmail.com    |
++--------+-----------+----------+---------+---------+-----------+---------+-------------+---------------------+
+4 rows in set (0.03 sec)
+//Getting Contact Records using City Name
+mysql> SELECT * FROM addressbook_service.addressbook WHERE (City = 'Vashi');
++--------+-----------+----------+---------+-------+-----------+---------+-------------+-------------------+
+| Sr.no. | firstName | lastName | address | City  | State     | ZipCode | PhoneNumber | email             |
++--------+-----------+----------+---------+-------+-----------+---------+-------------+-------------------+
+|      1 | Sagar     | Mhatre   | Dadar   | Vashi | Telengana |  400897 | 9923412366  | sagar88@gmail.com |
+|      6 | Raj       | Tandel   | Juhu    | Vashi | Telengana |  400892 | 8978121314  | raj23@gmail.com   |
++--------+-----------+----------+---------+-------+-----------+---------+-------------+-------------------+
+2 rows in set (0.01 sec)
+//Getting Contact Records using State Name
+mysql> SELECT * FROM addressbook_service.addressbook WHERE (State = 'Kerela');
++--------+-----------+----------+---------+---------+--------+---------+-------------+---------------------+
+| Sr.no. | firstName | lastName | address | City    | State  | ZipCode | PhoneNumber | email               |
++--------+-----------+----------+---------+---------+--------+---------+-------------+---------------------+
+|      3 | Vaibhav   | Thakur   | Dilor   | Matunga | Kerela |  781002 | 9912341243  | vaibhav12@gmail.com |
+|      7 | Rohit     | Patel    | Sonari  | Bhandup | Kerela |  789081 | 8978123451  | rohit1@gmail.com    |
++--------+-----------+----------+---------+---------+--------+---------+-------------+---------------------+
+2 rows in set (0.02 sec)
