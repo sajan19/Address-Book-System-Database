@@ -106,3 +106,18 @@ mysql> SELECT COUNT(State) FROM addressbook_service.addressbook;
 |            7 |
 +--------------+
 1 row in set (0.00 sec)
+-------------------------------------------------------
+//Use Case 8 Sort Entries alphabetically
+mysql> SELECT * FROM addressbook_service.addressbook ORDER BY firstName;
++--------+-----------+----------+---------+---------+-----------+---------+-------------+----------------------+
+| Sr.no. | firstName | lastName | address | City    | State     | ZipCode | PhoneNumber | email                |
++--------+-----------+----------+---------+---------+-----------+---------+-------------+----------------------+
+|      5 | Devedra   | Shravne  | Sion    | Karnir  | Karnataka |  980400 | 7968453211  | devd23@gmail.com     |
+|      8 | Himanshu  | Mali     | Belpada | Thane   | UP        |  400789 | 8977661234  | himanshu33@gmail.com |
+|      6 | Raj       | Tandel   | Juhu    | Vashi   | Telengana |  400892 | 8978121314  | raj23@gmail.com      |
+|      7 | Rohit     | Patel    | Sonari  | Bhandup | Kerela    |  789081 | 8978123451  | rohit1@gmail.com     |
+|      1 | Sagar     | Mhatre   | Dadar   | Vashi   | Telengana |  400897 | 9923412366  | sagar88@gmail.com    |
+|      4 | Sajan     | Mhatre   | Thane   | Nagoan  | UP        |  890123 | 8978098909  | sajan19@gmail.com    |
+|      3 | Vaibhav   | Thakur   | Dilor   | Matunga | Kerela    |  781002 | 9912341243  | vaibhav12@gmail.com  |
++--------+-----------+----------+---------+---------+-----------+---------+-------------+----------------------+
+7 rows in set (0.00 sec)
