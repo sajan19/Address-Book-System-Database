@@ -89,3 +89,20 @@ mysql> SELECT * FROM addressbook_service.addressbook WHERE (State = 'Kerela');
 |      7 | Rohit     | Patel    | Sonari  | Bhandup | Kerela |  789081 | 8978123451  | rohit1@gmail.com    |
 +--------+-----------+----------+---------+---------+--------+---------+-------------+---------------------+
 2 rows in set (0.02 sec)
+-------------------------------------------------------
+//Use Case 7 Size of Address Book using City and State
+mysql> SELECT COUNT(City) FROM addressbook_service.addressbook;
++-------------+
+| COUNT(City) |
++-------------+
+|           7 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT COUNT(State) FROM addressbook_service.addressbook;
++--------------+
+| COUNT(State) |
++--------------+
+|            7 |
++--------------+
+1 row in set (0.00 sec)
