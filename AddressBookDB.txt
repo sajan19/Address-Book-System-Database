@@ -171,3 +171,15 @@ mysql> SELECT * FROM addressbook;
 |      8 | Himanshu  | Mali     | friend | Belpada | Thane   | UP        |  400789 | 8977661234  | himanshu33@gmail.com |
 +--------+-----------+----------+--------+---------+---------+-----------+---------+-------------+----------------------+
 7 rows in set (0.00 sec)
+
+-------------------------------------------------------
+//Use Case 10 Count by each type
+
+mysql> select type, count(type) from  `addressbook_service`.`addressbook` group by type;
++--------+-------------+
+| type   | count(type) |
++--------+-------------+
+| family |           3 |
+| friend |           4 |
++--------+-------------+
+2 rows in set (0.07 sec)
