@@ -122,7 +122,7 @@ mysql> SELECT * FROM addressbook_service.addressbook ORDER BY firstName;
 +--------+-----------+----------+---------+---------+-----------+---------+-------------+----------------------+
 7 rows in set (0.00 sec)
 -------------------------------------------------------
-//Use Case 8 Sort Entries alphabetically
+//Use Case 9 Add Column type in the table
 mysql> Alter table addressbook_service.addressbook add type varchar(20) after lastName ;
 mysql> SELECT * FROM addressbook;
 +--------+-----------+----------+------+---------+---------+-----------+---------+-------------+----------------------+
