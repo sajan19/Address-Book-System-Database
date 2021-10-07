@@ -183,3 +183,27 @@ mysql> select type, count(type) from  `addressbook_service`.`addressbook` group 
 | friend |           4 |
 +--------+-------------+
 2 rows in set (0.07 sec)
+
+-------------------------------------------------------
+//Use Case 11 Ability to add person to both Friend and Family
+mysql> INSERT INTO `addressbook_service`.`addressbook` (`Sr.no.`, `firstName`, `lastName`, `type`, `address`, `City`, `State`, `ZipCode`, `PhoneNumber`, `email`) VALUES ('9', 'Rani', 'Patil', 'friend', 'Sarde', 'Panvel', 'MP', '600712', '8855119900', 'ranip22@gmail.com');INSERT INTO `addressbook_service`.`addressbook` (`Sr.no.`, `firstName`, `lastName`, `type`, `address`, `City`, `State`, `ZipCode`, `PhoneNumber`, `email`) VALUES ('10', 'Rajesh', 'Kumar', 'family', 'Funda', 'Airoli', 'Telengana', '542009', '7812901266', 'rajesh7@gmail.com');
+Query OK, 1 row affected (0.16 sec)
+
+Query OK, 1 row affected (0.06 sec)
+
+mysql> select * from addressbook;
++--------+-----------+----------+--------+---------+---------+-----------+---------+-------------+----------------------+
+| Sr.no. | firstName | lastName | type   | address | City    | State     | ZipCode | PhoneNumber | email                |
++--------+-----------+----------+--------+---------+---------+-----------+---------+-------------+----------------------+
+|      1 | Sagar     | Mhatre   | family | Dadar   | Vashi   | Telengana |  400897 | 9923412366  | sagar88@gmail.com    |
+|      3 | Vaibhav   | Thakur   | friend | Dilor   | Matunga | Kerela    |  781002 | 9912341243  | vaibhav12@gmail.com  |
+|      4 | Sajan     | Mhatre   | family | Thane   | Nagoan  | UP        |  890123 | 8978098909  | sajan19@gmail.com    |
+|      5 | Devedra   | Shravne  | friend | Sion    | Karnir  | Karnataka |  980400 | 7968453211  | devd23@gmail.com     |
+|      6 | Raj       | Tandel   | friend | Juhu    | Vashi   | Telengana |  400892 | 8978121314  | raj23@gmail.com      |
+|      7 | Rohit     | Patel    | family | Sonari  | Bhandup | Kerela    |  789081 | 8978123451  | rohit1@gmail.com     |
+|      8 | Himanshu  | Mali     | friend | Belpada | Thane   | UP        |  400789 | 8977661234  | himanshu33@gmail.com |
+|      9 | Rani      | Patil    | friend | Sarde   | Panvel  | MP        |  600712 | 8855119900  | ranip22@gmail.com    |
+|     10 | Rajesh    | Kumar    | family | Funda   | Airoli  | Telengana |  542009 | 7812901266  | rajesh7@gmail.com    |
++--------+-----------+----------+--------+---------+---------+-----------+---------+-------------+----------------------+
+9 rows in set (0.03 sec)
+
