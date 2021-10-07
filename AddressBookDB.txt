@@ -121,3 +121,53 @@ mysql> SELECT * FROM addressbook_service.addressbook ORDER BY firstName;
 |      3 | Vaibhav   | Thakur   | Dilor   | Matunga | Kerela    |  781002 | 9912341243  | vaibhav12@gmail.com  |
 +--------+-----------+----------+---------+---------+-----------+---------+-------------+----------------------+
 7 rows in set (0.00 sec)
+-------------------------------------------------------
+//Use Case 8 Sort Entries alphabetically
+mysql> Alter table addressbook_service.addressbook add type varchar(20) after lastName ;
+mysql> SELECT * FROM addressbook;
++--------+-----------+----------+------+---------+---------+-----------+---------+-------------+----------------------+
+| Sr.no. | firstName | lastName | type | address | City    | State     | ZipCode | PhoneNumber | email                |
++--------+-----------+----------+------+---------+---------+-----------+---------+-------------+----------------------+
+|      1 | Sagar     | Mhatre   | NULL | Dadar   | Vashi   | Telengana |  400897 | 9923412366  | sagar88@gmail.com    |
+|      3 | Vaibhav   | Thakur   | NULL | Dilor   | Matunga | Kerela    |  781002 | 9912341243  | vaibhav12@gmail.com  |
+|      4 | Sajan     | Mhatre   | NULL | Thane   | Nagoan  | UP        |  890123 | 8978098909  | sajan19@gmail.com    |
+|      5 | Devedra   | Shravne  | NULL | Sion    | Karnir  | Karnataka |  980400 | 7968453211  | devd23@gmail.com     |
+|      6 | Raj       | Tandel   | NULL | Juhu    | Vashi   | Telengana |  400892 | 8978121314  | raj23@gmail.com      |
+|      7 | Rohit     | Patel    | NULL | Sonari  | Bhandup | Kerela    |  789081 | 8978123451  | rohit1@gmail.com     |
+|      8 | Himanshu  | Mali     | NULL | Belpada | Thane   | UP        |  400789 | 8977661234  | himanshu33@gmail.com |
++--------+-----------+----------+------+---------+---------+-----------+---------+-------------+----------------------+
+7 rows in set (0.00 sec)
+
+mysql> UPDATE `addressbook_service`.`addressbook` SET `type` = 'family' WHERE (`firstName` = 'Sajan');
+Query OK, 1 row affected (0.09 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE `addressbook_service`.`addressbook` SET `type` = 'friend' WHERE (`firstName` = 'Vaibhav');
+Query OK, 1 row affected (0.21 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE `addressbook_service`.`addressbook` SET `type` = 'friend' WHERE (`firstName` = 'Devedra');
+Query OK, 1 row affected (0.23 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE `addressbook_service`.`addressbook` SET `type` = 'friend' WHERE (`firstName` = 'Raj');
+Query OK, 1 row affected (0.16 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE `addressbook_service`.`addressbook` SET `type` = 'friend' WHERE (`firstName` = 'Himanshu');
+Query OK, 1 row affected (0.13 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM addressbook;
++--------+-----------+----------+--------+---------+---------+-----------+---------+-------------+----------------------+
+| Sr.no. | firstName | lastName | type   | address | City    | State     | ZipCode | PhoneNumber | email                |
++--------+-----------+----------+--------+---------+---------+-----------+---------+-------------+----------------------+
+|      1 | Sagar     | Mhatre   | family | Dadar   | Vashi   | Telengana |  400897 | 9923412366  | sagar88@gmail.com    |
+|      3 | Vaibhav   | Thakur   | friend | Dilor   | Matunga | Kerela    |  781002 | 9912341243  | vaibhav12@gmail.com  |
+|      4 | Sajan     | Mhatre   | family | Thane   | Nagoan  | UP        |  890123 | 8978098909  | sajan19@gmail.com    |
+|      5 | Devedra   | Shravne  | friend | Sion    | Karnir  | Karnataka |  980400 | 7968453211  | devd23@gmail.com     |
+|      6 | Raj       | Tandel   | friend | Juhu    | Vashi   | Telengana |  400892 | 8978121314  | raj23@gmail.com      |
+|      7 | Rohit     | Patel    | family | Sonari  | Bhandup | Kerela    |  789081 | 8978123451  | rohit1@gmail.com     |
+|      8 | Himanshu  | Mali     | friend | Belpada | Thane   | UP        |  400789 | 8977661234  | himanshu33@gmail.com |
++--------+-----------+----------+--------+---------+---------+-----------+---------+-------------+----------------------+
+7 rows in set (0.00 sec)
