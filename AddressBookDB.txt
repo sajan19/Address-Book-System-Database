@@ -245,3 +245,127 @@ Records: 0  Duplicates: 0  Warnings: 0
 Query OK, 2 rows affected (2.18 sec)
 Records: 2  Duplicates: 0  Warnings: 0
 
+mysql> select * from addressbook inner join relation_type on addressbook.type = relation_type.type\G;
+*************************** 1. row ***************************
+     Sr.no.: 1
+  firstName: Sagar
+   lastName: Mhatre
+       type: family
+    address: Dadar
+       City: Vashi
+      State: Telengana
+    ZipCode: 400897
+PhoneNumber: 9923412366
+      email: sagar88@gmail.com
+    type_id: 1
+       type: family
+*************************** 2. row ***************************
+     Sr.no.: 3
+  firstName: Vaibhav
+   lastName: Thakur
+       type: friend
+    address: Dilor
+       City: Matunga
+      State: Kerela
+    ZipCode: 781002
+PhoneNumber: 9912341243
+      email: vaibhav12@gmail.com
+    type_id: 2
+       type: friend
+*************************** 3. row ***************************
+     Sr.no.: 4
+  firstName: Sajan
+   lastName: Mhatre
+       type: family
+    address: Thane
+       City: Nagoan
+      State: UP
+    ZipCode: 890123
+PhoneNumber: 8978098909
+      email: sajan19@gmail.com
+    type_id: 1
+       type: family
+*************************** 4. row ***************************
+     Sr.no.: 5
+  firstName: Devedra
+   lastName: Shravne
+       type: friend
+    address: Sion
+       City: Karnir
+      State: Karnataka
+    ZipCode: 980400
+PhoneNumber: 7968453211
+      email: devd23@gmail.com
+    type_id: 2
+       type: friend
+*************************** 5. row ***************************
+     Sr.no.: 6
+  firstName: Raj
+   lastName: Tandel
+       type: friend
+    address: Juhu
+       City: Vashi
+      State: Telengana
+    ZipCode: 400892
+PhoneNumber: 8978121314
+      email: raj23@gmail.com
+    type_id: 2
+       type: friend
+*************************** 6. row ***************************
+     Sr.no.: 7
+  firstName: Rohit
+   lastName: Patel
+       type: family
+    address: Sonari
+       City: Bhandup
+      State: Kerela
+    ZipCode: 789081
+PhoneNumber: 8978123451
+      email: rohit1@gmail.com
+    type_id: 1
+       type: family
+*************************** 7. row ***************************
+     Sr.no.: 8
+  firstName: Himanshu
+   lastName: Mali
+       type: friend
+    address: Belpada
+       City: Thane
+      State: UP
+    ZipCode: 400789
+PhoneNumber: 8977661234
+      email: himanshu33@gmail.com
+    type_id: 2
+       type: friend
+*************************** 8. row ***************************
+     Sr.no.: 9
+  firstName: Rani
+   lastName: Patil
+       type: friend
+    address: Sarde
+       City: Panvel
+      State: MP
+    ZipCode: 600712
+PhoneNumber: 8855119900
+      email: ranip22@gmail.com
+    type_id: 2
+       type: friend
+*************************** 9. row ***************************
+     Sr.no.: 10
+  firstName: Rajesh
+   lastName: Kumar
+       type: family
+    address: Funda
+       City: Airoli
+      State: Telengana
+    ZipCode: 542009
+PhoneNumber: 7812901266
+      email: rajesh7@gmail.com
+    type_id: 1
+       type: family
+9 rows in set (0.06 sec)
+
+ERROR:
+No query specified
+
+mysql>
