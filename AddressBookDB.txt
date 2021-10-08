@@ -369,3 +369,66 @@ ERROR:
 No query specified
 
 mysql>
+
+-------------------------------------------------------
+//Use Case 13 Retrieving Data from New Table Structure
+
+mysql> select * from addressbook inner join relation_type on addressbook.type = relation_type.type WHERE (City = 'Vashi');
++--------+-----------+----------+--------+---------+-------+-----------+---------+-------------+-------------------+---------+--------+
+| Sr.no. | firstName | lastName | type   | address | City  | State     | ZipCode | PhoneNumber | email             | type_id | type   |
++--------+-----------+----------+--------+---------+-------+-----------+---------+-------------+-------------------+---------+--------+
+|      1 | Sagar     | Mhatre   | family | Dadar   | Vashi | Telengana |  400897 | 9923412366  | sagar88@gmail.com |       1 | family |
+|      6 | Raj       | Tandel   | friend | Juhu    | Vashi | Telengana |  400892 | 8978121314  | raj23@gmail.com   |       2 | friend |
++--------+-----------+----------+--------+---------+-------+-----------+---------+-------------+-------------------+---------+--------+
+2 rows in set (0.00 sec)
+
+mysql> select * from addressbook inner join relation_type on addressbook.type = relation_type.type WHERE (State = 'Kerela');
++--------+-----------+----------+--------+---------+---------+--------+---------+-------------+---------------------+---------+--------+
+| Sr.no. | firstName | lastName | type   | address | City    | State  | ZipCode | PhoneNumber | email               | type_id | type   |
++--------+-----------+----------+--------+---------+---------+--------+---------+-------------+---------------------+---------+--------+
+|      3 | Vaibhav   | Thakur   | friend | Dilor   | Matunga | Kerela |  781002 | 9912341243  | vaibhav12@gmail.com |       2 | friend |
+|      7 | Rohit     | Patel    | family | Sonari  | Bhandup | Kerela |  789081 | 8978123451  | rohit1@gmail.com    |       1 | family |
++--------+-----------+----------+--------+---------+---------+--------+---------+-------------+---------------------+---------+--------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT COUNT(City) FROM addressbook inner join relation_type on addressbook.type = relation_type.type;
++-------------+
+| COUNT(City) |
++-------------+
+|           9 |
++-------------+
+1 row in set (0.05 sec)
+
+mysql> SELECT COUNT(State) FROM addressbook inner join relation_type on addressbook.type = relation_type.type;
++--------------+
+| COUNT(State) |
++--------------+
+|            9 |
++--------------+
+1 row in set (0.00 sec)
+
+mysql> select * from addressbook inner join relation_type on addressbook.type = relation_type.type ORDER by firstName;
++--------+-----------+----------+--------+---------+---------+-----------+---------+-------------+----------------------+---------+--------+
+| Sr.no. | firstName | lastName | type   | address | City    | State     | ZipCode | PhoneNumber | email                | type_id | type   |
++--------+-----------+----------+--------+---------+---------+-----------+---------+-------------+----------------------+---------+--------+
+|      5 | Devedra   | Shravne  | friend | Sion    | Karnir  | Karnataka |  980400 | 7968453211  | devd23@gmail.com     |       2 | friend |
+|      8 | Himanshu  | Mali     | friend | Belpada | Thane   | UP        |  400789 | 8977661234  | himanshu33@gmail.com |       2 | friend |
+|      6 | Raj       | Tandel   | friend | Juhu    | Vashi   | Telengana |  400892 | 8978121314  | raj23@gmail.com      |       2 | friend |
+|     10 | Rajesh    | Kumar    | family | Funda   | Airoli  | Telengana |  542009 | 7812901266  | rajesh7@gmail.com    |       1 | family |
+|      9 | Rani      | Patil    | friend | Sarde   | Panvel  | MP        |  600712 | 8855119900  | ranip22@gmail.com    |       2 | friend |
+|      7 | Rohit     | Patel    | family | Sonari  | Bhandup | Kerela    |  789081 | 8978123451  | rohit1@gmail.com     |       1 | family |
+|      1 | Sagar     | Mhatre   | family | Dadar   | Vashi   | Telengana |  400897 | 9923412366  | sagar88@gmail.com    |       1 | family |
+|      4 | Sajan     | Mhatre   | family | Thane   | Nagoan  | UP        |  890123 | 8978098909  | sajan19@gmail.com    |       1 | family |
+|      3 | Vaibhav   | Thakur   | friend | Dilor   | Matunga | Kerela    |  781002 | 9912341243  | vaibhav12@gmail.com  |       2 | friend |
++--------+-----------+----------+--------+---------+---------+-----------+---------+-------------+----------------------+---------+--------+
+9 rows in set (0.00 sec)
+
+mysql> select type_id, count(type_id) from addressbook inner join relation_type on addressbook.type = relation_type.type group by type_id;
++---------+----------------+
+| type_id | count(type_id) |
++---------+----------------+
+|       1 |              4 |
+|       2 |              5 |
++---------+----------------+
+2 rows in set (0.02 sec)
+
