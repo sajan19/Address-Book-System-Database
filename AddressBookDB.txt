@@ -186,7 +186,14 @@ mysql> select type, count(type) from  `addressbook_service`.`addressbook` group 
 
 -------------------------------------------------------
 //Use Case 11 Ability to add person to both Friend and Family
-mysql> INSERT INTO `addressbook_service`.`addressbook` (`Sr.no.`, `firstName`, `lastName`, `type`, `address`, `City`, `State`, `ZipCode`, `PhoneNumber`, `email`) VALUES ('9', 'Rani', 'Patil', 'friend', 'Sarde', 'Panvel', 'MP', '600712', '8855119900', 'ranip22@gmail.com');INSERT INTO `addressbook_service`.`addressbook` (`Sr.no.`, `firstName`, `lastName`, `type`, `address`, `City`, `State`, `ZipCode`, `PhoneNumber`, `email`) VALUES ('10', 'Rajesh', 'Kumar', 'family', 'Funda', 'Airoli', 'Telengana', '542009', '7812901266', 'rajesh7@gmail.com');
+mysql> INSERT INTO `addressbook_service`.`addressbook` (`Sr.no.`, `firstName`, `lastName`, `type`, `address`,
+ `City`, `State`, `ZipCode`, `PhoneNumber`, `email`)
+VALUES ('9', 'Rani', 'Patil', 'friend', 'Sarde',
+'Panvel', 'MP', '600712', '8855119900', 'ranip22@gmail.com');
+INSERT INTO `addressbook_service`.`addressbook` (`Sr.no.`, `firstName`, `lastName`, `type`, `address`,
+`City`, `State`, `ZipCode`, `PhoneNumber`, `email`)
+VALUES ('10', 'Rajesh', 'Kumar', 'family', 'Funda', 'Airoli',
+ 'Telengana', '542009', '7812901266', 'rajesh7@gmail.com');
 Query OK, 1 row affected (0.16 sec)
 
 Query OK, 1 row affected (0.06 sec)
@@ -206,4 +213,35 @@ mysql> select * from addressbook;
 |     10 | Rajesh    | Kumar    | family | Funda   | Airoli  | Telengana |  542009 | 7812901266  | rajesh7@gmail.com    |
 +--------+-----------+----------+--------+---------+---------+-----------+---------+-------------+----------------------+
 9 rows in set (0.03 sec)
+
+-------------------------------------------------------
+//Use Case 12 Creating new table and specifying foreign key
+
+mysql> CREATE TABLE `addressbook_service`.`relation_type` (  `type_id` INT NOT NULL,  `type` VARCHAR(45) NOT NULL,
+ PRIMARY KEY (`type`));
+Query OK, 0 rows affected (1.32 sec)
+
+mysql> INSERT INTO `addressbook_service`.`relation_type` (`type_id`, `type`) VALUES ('1', 'family');
+INSERT INTO `addressbook_service`.`relation_type` (`type_id`, `type`) VALUES ('2', 'friends');
+Query OK, 1 row affected (0.19 sec)
+
+Query OK, 1 row affected (0.12 sec)
+
+mysql> Select * from `addressbook_service`.`relation_type`;
++---------+---------+
+| type_id | type    |
++---------+---------+
+|       1 | family  |
+|       2 | friends |
++---------+---------+
+2 rows in set (0.00 sec)
+
+mysql> ALTER TABLE `addressbook_service`.`relation_type` ADD INDEX `type_idx` (`type` ASC) VISIBLE;;
+ ALTER TABLE `addressbook_service`.`relation_type` ADD CONSTRAINT `type`
+ FOREIGN KEY (`type`)  REFERENCES `addressbook_service`.`addressbook` (`type`)
+ ON DELETE NO ACTION  ON UPDATE NO ACTION;
+Query OK, 0 rows affected (0.77 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+Query OK, 2 rows affected (2.18 sec)
+Records: 2  Duplicates: 0  Warnings: 0
 
